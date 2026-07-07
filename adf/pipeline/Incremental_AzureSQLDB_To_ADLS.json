@@ -30,6 +30,7 @@
 						"referenceName": "ds_adls_json",
 						"type": "DatasetReference",
 						"parameters": {
+							"folder": "loop_input",
 							"file": "loop_input.json"
 						}
 					},
