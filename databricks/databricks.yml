@@ -1,0 +1,26 @@
+bundle:
+  name: deployment_asset_bundles
+  uuid: ae4a44b7-8604-46e0-a3ef-70fd4efb4241
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-7405615609318474.14.azuredatabricks.net
+      root_path: /Workspace/Users/rabab.abid@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      my_catalog: musicmeta_dev
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405615609318474.14.azuredatabricks.net
+      root_path: /Workspace/PROD/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      my_catalog: musicmeta_prod
+    permissions:
+      - user_name: rabab.abid@gmail.com
+        level: CAN_MANAGE
