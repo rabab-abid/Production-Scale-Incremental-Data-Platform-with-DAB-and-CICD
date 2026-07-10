@@ -1,7 +1,8 @@
 # Databricks notebook source
-# MAGIC %pip install jinja2
+
 
 # COMMAND ----------
+%pip install jinja2==3.1.3
 
 parameters = [
     {
