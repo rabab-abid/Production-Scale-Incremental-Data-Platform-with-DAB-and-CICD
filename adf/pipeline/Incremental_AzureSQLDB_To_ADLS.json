@@ -38,7 +38,7 @@
 				}
 			},
 			{
-				"name": "foreach_tables",
+				"name": "AzureSQL_Table_To_ADLS_Bronze_Dir",
 				"type": "ForEach",
 				"dependsOn": [
 					{

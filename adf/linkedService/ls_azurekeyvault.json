@@ -1,0 +1,10 @@
+{
+	"name": "ls_azurekeyvault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://musicmetadataKV.vault.azure.net/"
+		}
+	}
+}
