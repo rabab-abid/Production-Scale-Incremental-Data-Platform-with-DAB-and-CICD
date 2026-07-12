@@ -12,7 +12,19 @@
 					"type": "LinkedServiceReference"
 				},
 				"secretName": "databricks-token"
-			}
+			},
+			"newClusterNodeType": "Standard_DS3_v2",
+			"newClusterNumOfWorker": "1",
+			"newClusterSparkConf": {
+				"spark.databricks.cluster.profile": "singleNode"
+			},
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterVersion": "17.3.x-scala2.13",
+			"clusterOption": "Fixed",
+			"newClusterInitScripts": [],
+			"dataSecurityMode": "SINGLE_USER"
 		}
 	}
 }
