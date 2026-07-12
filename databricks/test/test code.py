@@ -16,3 +16,7 @@
 
 # MAGIC %sql
 # MAGIC SELECT * FROM musicmeta_dev.goldlayer.factstream
+
+
+
+# Pipeline v2.0 - Dev Deployment Test

@@ -62,10 +62,3 @@ query = jinja_sql_str.render(parameters=parameters)
 print(query)
 display(spark.sql(query))
 
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC ALTER CATALOG musicmeta_dev 
-# MAGIC SET MANAGED LOCATION 'abfss://databricksmetastore@musicmetadataadls.dfs.core.windows.net/musicmeta_dev';
-# MAGIC DROP SCHEMA IF EXISTS musicmeta_dev.gold CASCADE;
-# MAGIC CREATE SCHEMA IF NOT EXISTS musicmeta_dev.gold;
