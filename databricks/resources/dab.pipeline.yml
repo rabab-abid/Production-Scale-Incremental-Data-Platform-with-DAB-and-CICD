@@ -1,0 +1,13 @@
+resources:
+  pipelines:
+    gold_pipeline:
+      name: goldpipeline_dab
+      catalog: ${var.my_catalog}
+      schema: goldlayer
+      continuous: false
+      photon: true
+      channel: CURRENT
+      serverless: true
+      libraries:
+        - file:
+            path: ../src/gold/dlt/transformations/gold_model_autocdc.py

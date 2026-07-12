@@ -1,0 +1,15 @@
+{
+	"name": "musicmetadataadf",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "qatarcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8bdac717-c77d-475a-b120-a8784dbdcddd",
+		"tenantId": "671cb102-4dd6-4ca4-945a-644a085e8d87"
+	}
+}
