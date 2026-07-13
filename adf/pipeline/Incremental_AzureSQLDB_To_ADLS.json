@@ -355,8 +355,50 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Execute_DAB_Workflow",
+				"type": "DatabricksJob",
+				"dependsOn": [
+					{
+						"activity": "AzureSQL_Table_To_ADLS_Bronze_Dir",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"jobId": {
+						"value": "@if(equals(pipeline().parameters.TargetEnv, 'dev'), \n    '911801468242781', \n    '1036826920414563'\n)",
+						"type": "Expression"
+					},
+					"jobParameters": {
+						"catalog_name": {
+							"value": "@if(equals(pipeline().parameters.TargetEnv, 'dev'), 'musicmeta_dev', 'musicmeta_prod')\n",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_azuredatabricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"parameters": {
+			"Targetenv": {
+				"type": "string",
+				"defaultValue": "dev"
+			}
+		},
 		"variables": {
 			"current": {
 				"type": "String"
