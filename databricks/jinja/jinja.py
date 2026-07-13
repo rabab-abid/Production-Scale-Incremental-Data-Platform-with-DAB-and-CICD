@@ -1,25 +1,27 @@
 # Databricks notebook source
 
+dbutils.widgets.text("catalog_name", "musicmeta_dev", "Target Catalog")
+catalog = dbutils.widgets.get("catalog_name")
 
 # COMMAND ----------
 %pip install jinja2==3.1.3
 
 parameters = [
     {
-        "table": "musicmeta_dev.silver.factstream",
+        "table": f"{catalog}.silver.factstream",
         "alias": "factstream",
         "cols": "factstream.stream_id, factstream.listen_duration",
         "where": ""
     },
     {
-        "table": "musicmeta_dev.silver.dimuser",
+        "table": f"{catalog}.silver.dimuser",
         "alias": "dimuser",
         "cols": "dimuser.user_id, dimuser.user_name",
         "on": "factstream.user_id=dimuser.user_id",
         "where": ""
     },
     {
-        "table": "musicmeta_dev.silver.dimtrack",
+        "table": f"{catalog}.silver.dimtrack",
         "alias": "dimtrack",
         "cols": "dimtrack.track_id, dimtrack.track_name",
         "on": "factstream.track_id=dimtrack.track_id",

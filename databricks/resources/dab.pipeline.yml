@@ -8,6 +8,8 @@ resources:
       photon: true
       channel: CURRENT
       serverless: true
+      configuration:
+        catalog_name: ${var.my_catalog}
       libraries:
         - file:
             path: ../src/gold/dlt/transformations/gold_model_autocdc.py
