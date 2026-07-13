@@ -1,4 +1,8 @@
 # Databricks notebook source
+
+dbutils.widgets.text("catalog_name", "musicmeta_dev", "Target Catalog")
+catalog = dbutils.widgets.get("catalog_name")
+
 from pyspark.sql import functions as F
 from pyspark.sql.types import *
 
@@ -34,7 +38,7 @@ df_user.writeStream \
     .trigger(once=True) \
     .option("path",
         "abfss://silver@musicmetadataadls.dfs.core.windows.net/DimUser/data") \
-    .toTable("musicmeta_dev.silver.DimUser")
+    .toTable(f"{catalog}.silver.DimUser")
 
 # COMMAND ----------
 
@@ -71,7 +75,7 @@ df_track.writeStream \
     .trigger(once=True) \
     .option("path",
         "abfss://silver@musicmetadataadls.dfs.core.windows.net/DimTrack/data") \
-    .toTable("musicmeta_dev.silver.DimTrack")
+    .toTable(f"{catalog}.silver.DimTrack")
 
 # COMMAND ----------
 
@@ -101,7 +105,7 @@ df_date.writeStream \
     .trigger(once=True) \
     .option("path",
         "abfss://silver@musicmetadataadls.dfs.core.windows.net/DimDate/data") \
-    .toTable("musicmeta_dev.silver.DimDate")
+    .toTable(f"{catalog}.silver.DimDate")
 
 # COMMAND ----------
 
@@ -130,4 +134,4 @@ df_fact.writeStream \
     .trigger(once=True) \
     .option("path",
         "abfss://silver@musicmetadataadls.dfs.core.windows.net/FactStream/data") \
-    .toTable("musicmeta_dev.silver.factstream")
+    .toTable(f"{catalog}.silver.factstream")

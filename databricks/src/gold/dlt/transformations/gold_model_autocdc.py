@@ -1,3 +1,5 @@
+catalog = spark.conf.get("catalog_name", "musicmeta_dev")
+
 from pyspark import pipelines as dp
 from pyspark.sql.functions import col
 
@@ -7,7 +9,7 @@ expectations = {"rule1": "user_id IS NOT NULL"}
 @dp.table
 @dp.expect_all_or_drop(expectations)
 def dimuser_stg():
-    return spark.readStream.table("musicmeta_dev.silver.DimUser")
+    return spark.readStream.table(f"{catalog}.silver.DimUser")
 
 dp.create_streaming_table(
     name="dimuser",
@@ -23,7 +25,7 @@ dp.create_auto_cdc_flow(
 # DimTrack — SCD Type 2
 @dp.table
 def dimtrack_stg():
-    return spark.readStream.table("musicmeta_dev.silver.DimTrack")
+    return spark.readStream.table(f"{catalog}.silver.DimTrack")
 
 dp.create_streaming_table(name="dimtrack")
 
@@ -37,7 +39,7 @@ dp.create_auto_cdc_flow(
 # DimDate — SCD Type 2
 @dp.table
 def dimdate_stg():
-    return spark.readStream.table("musicmeta_dev.silver.DimDate")
+    return spark.readStream.table(f"{catalog}.silver.DimDate")
 
 dp.create_streaming_table(name="dimdate")
 
@@ -49,7 +51,7 @@ dp.create_auto_cdc_flow(
 # FactStream — SCD Type 1
 @dp.table
 def factstream_stg():
-    return spark.readStream.table("musicmeta_dev.silver.FactStream")
+    return spark.readStream.table(f"{catalog}.silver.FactStream")
 
 dp.create_streaming_table(name="factstream")
 
