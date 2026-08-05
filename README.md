@@ -4,7 +4,7 @@
 This repository contains the complete implementation of a production-grade, end-to-end data platform built with modern cloud-native DevOps principles. The core objective of this project is to showcase **environment-decoupled parameterization**—enabling a single, dynamic codebase to orchestrate and process data safely across isolated **Development (Dev)** and **Production (Prod)** targets without code duplication or hardcoded parameters.
 
 ## Demo Video
-[![Project Demo](https://img.shields.io/badge/Watch-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/NLJHYP9fohs?si=oWbnQMhmbw9StdAY)
+[![Project Demo](https://img.shields.io/badge/Watch-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/NLJHYP9fohs)
 *Developed by Rabab Abid — Production-Grade Data Engineering Showcase Portfolio.* 
 
 ### System Architecture Diagram
